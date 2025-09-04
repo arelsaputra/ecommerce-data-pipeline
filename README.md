@@ -7,6 +7,7 @@ This project implements a **data pipeline** for an e-commerce platform, designed
 
 ## Project Structure
 ecommerce_data_pipeline/
+
 │
 
 ├── dags/ # Airflow DAGs (workflow definitions)
