@@ -80,13 +80,13 @@ Reports & Visualizations :
 
 Setup Instructions
 
-Clone repository
+1. Clone repository
 ```
 git clone https://github.com/arelsaputra/ecommerce-data-pipeline.git
 cd eco
 mmerce-data-pipeline
 ```
-Create and activate virtual environment
+2. Create and activate virtual environment
 ```
 python -m venv airflow_env
 
@@ -96,20 +96,20 @@ airflow_env\Scripts\activate
 # macOS/Linux
 source airflow_env/bin/activate
 ```
-Install dependencies
+3. Install dependencies
 ```
 pip install -r requirements.txt
 ```
-Initialize and start Airflow
+4. Initialize and start Airflow
 ```
 airflow db init
 airflow webserver --port 8080
 airflow scheduler
 ```
-Place datasets
+5. Place datasets
  - Put raw CSV/XLSX files in datasets/raw/.
 
-Run DAGs
+6. Run DAGs
  - DAGs will automatically extract, transform, and load data.
  - Reports will be saved in reports/.
 
