@@ -8,13 +8,19 @@ This project implements a **data pipeline** for an e-commerce platform, designed
 ## Project Structure
 ecommerce_data_pipeline/
 │
+
 ├── dags/ # Airflow DAGs (workflow definitions)
+
 ├── airflow_env/ # Local Python virtual environment (ignored in Git)
+
 ├── datasets/ # Raw and processed datasets (ignored in Git)
 │ ├── raw/ # Original datasets
 │ └── processed/ # Cleaned and transformed datasets
+
 ├── reports/ # Generated analysis reports (ignored in Git)
+
 ├── .gitignore # Git ignore rules
+
 ├── requirements.txt # Python dependencies
 └── README.md # Project documentation
 
