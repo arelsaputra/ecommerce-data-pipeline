@@ -15,9 +15,9 @@ ecommerce_data_pipeline/
 
 ├── datasets/ # Raw and processed datasets (ignored in Git)
 
-  ├── raw/ # Original datasets
+│  ├── raw/ # Original datasets
   
-  └── processed/ # Cleaned and transformed datasets
+│  └── processed/ # Cleaned and transformed datasets
 
 ├── reports/ # Generated analysis reports (ignored in Git)
 
