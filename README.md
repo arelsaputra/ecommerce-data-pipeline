@@ -14,9 +14,7 @@ ecommerce_data_pipeline/
 ├── airflow_env/ # Local Python virtual environment (ignored in Git)
 
 ├── datasets/ # Raw and processed datasets (ignored in Git)
-│ 
 ├── raw/ # Original datasets
-│ 
 └── processed/ # Cleaned and transformed datasets
 
 ├── reports/ # Generated analysis reports (ignored in Git)
