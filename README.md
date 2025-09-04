@@ -77,3 +77,50 @@ Reports & Visualizations :
  - Daily sales summaries in CSV or Excel.
  - Charts for product sales distribution and customer segmentation.
  - Optionally integrated with Metabase dashboards (config files ignored in Git).
+
+Setup Instructions
+
+Clone repository
+```
+git clone https://github.com/arelsaputra/ecommerce-data-pipeline.git
+cd eco
+mmerce-data-pipeline
+```
+Create and activate virtual environment
+```
+python -m venv airflow_env
+
+# Windows
+airflow_env\Scripts\activate
+
+# macOS/Linux
+source airflow_env/bin/activate
+```
+Install dependencies
+```
+pip install -r requirements.txt
+```
+Initialize and start Airflow
+```
+airflow db init
+airflow webserver --port 8080
+airflow scheduler
+```
+Place datasets
+ - Put raw CSV/XLSX files in datasets/raw/.
+
+Run DAGs
+ - DAGs will automatically extract, transform, and load data.
+ - Reports will be saved in reports/.
+
+Notes: 
+ - .gitignore ensures:
+   - airflow_env/ and virtual environments are ignored.
+   - Large datasets (datasets/) are ignored.
+   - Logs and temporary files are ignored.
+- After running the pipeline, processed data and reports are generated locally only.
+
+Contributing
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix.
+3. Submit a pull request with your changes.
