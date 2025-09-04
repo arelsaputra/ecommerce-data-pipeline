@@ -24,6 +24,7 @@ ecommerce_data_pipeline/
 ├── .gitignore # Git ignore rules
 
 ├── requirements.txt # Python dependencies
+
 └── README.md # Project documentation
 
 
