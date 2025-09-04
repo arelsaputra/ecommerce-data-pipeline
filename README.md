@@ -62,15 +62,14 @@ with DAG(
 ```
 
 Example Dataset
-
 The repository does not include raw datasets for size reasons.
 Structure expected in datasets/raw/:
-
+```
 File	Description
 Online_Retail.csv	Sales transaction data
 Customers.csv	Customer information
 Orders.csv	Order details
-
+```
 Processed data will be stored in datasets/processed/ after the pipeline runs.
 
 Reports & Visualizations :
