@@ -1,0 +1,28 @@
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual env
+.env/
+.venv/
+env/
+venv/
+
+# Logs
+logs/
+*.log
+
+# Airflow specific
+airflow.cfg
+unittests.cfg
+
+# Docker
+*.pid
+*.sock
+
+# IDE/editor
+.vscode/
+.idea/
+*.swp
