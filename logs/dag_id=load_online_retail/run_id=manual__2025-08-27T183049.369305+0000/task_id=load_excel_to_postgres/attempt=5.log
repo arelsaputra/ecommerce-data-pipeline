@@ -1,0 +1,52 @@
+[2025-08-28T06:50:26.348+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-08-28T06:50:26.543+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: load_online_retail.load_excel_to_postgres manual__2025-08-27T18:30:49.369305+00:00 [queued]>
+[2025-08-28T06:50:26.584+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: load_online_retail.load_excel_to_postgres manual__2025-08-27T18:30:49.369305+00:00 [queued]>
+[2025-08-28T06:50:26.585+0000] {taskinstance.py:2306} INFO - Starting attempt 5 of 6
+[2025-08-28T06:50:26.633+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): load_excel_to_postgres> on 2025-08-27 18:30:49.369305+00:00
+[2025-08-28T06:50:26.651+0000] {standard_task_runner.py:63} INFO - Started process 632 to run task
+[2025-08-28T06:50:26.675+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'load_online_retail', 'load_excel_to_postgres', 'manual__2025-08-27T18:30:49.369305+00:00', '--job-id', '72', '--raw', '--subdir', 'DAGS_FOLDER/load_retail_dag.py', '--cfg-path', '/tmp/tmpoo0jzvrv']
+[2025-08-28T06:50:26.706+0000] {standard_task_runner.py:91} INFO - Job 72: Subtask load_excel_to_postgres
+[2025-08-28T06:50:26.881+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:195 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-08-28T06:50:27.112+0000] {task_command.py:426} INFO - Running <TaskInstance: load_online_retail.load_excel_to_postgres manual__2025-08-27T18:30:49.369305+00:00 [running]> on host 9b893e28b5b2
+[2025-08-28T06:50:27.585+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='arel' AIRFLOW_CTX_DAG_ID='load_online_retail' AIRFLOW_CTX_TASK_ID='load_excel_to_postgres' AIRFLOW_CTX_EXECUTION_DATE='2025-08-27T18:30:49.369305+00:00' AIRFLOW_CTX_TRY_NUMBER='5' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-08-27T18:30:49.369305+00:00'
+[2025-08-28T06:50:27.592+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-08-28T06:52:27.979+0000] {logging_mixin.py:188} INFO - ✅ Berhasil load data dari: /opt/***/datasets/online_retail.xlsx
+[2025-08-28T06:52:27.980+0000] {logging_mixin.py:188} INFO - ==================================================
+[2025-08-28T06:52:27.981+0000] {logging_mixin.py:188} INFO - DEBUG: DATA STRUCTURE
+[2025-08-28T06:52:27.981+0000] {logging_mixin.py:188} INFO - ==================================================
+[2025-08-28T06:52:27.982+0000] {logging_mixin.py:188} INFO - Columns in DataFrame: ['InvoiceNo', 'StockCode', 'Description', 'Quantity', 'InvoiceDate', 'UnitPrice', 'CustomerID', 'Country']
+[2025-08-28T06:52:27.982+0000] {logging_mixin.py:188} INFO - Number of rows: 541909
+[2025-08-28T06:52:27.983+0000] {logging_mixin.py:188} INFO - 
+First 5 rows:
+[2025-08-28T06:52:28.224+0000] {logging_mixin.py:188} INFO -   InvoiceNo StockCode  ... CustomerID         Country
+0    536365    85123A  ...    17850.0  United Kingdom
+1    536365     71053  ...    17850.0  United Kingdom
+2    536365    84406B  ...    17850.0  United Kingdom
+3    536365    84029G  ...    17850.0  United Kingdom
+4    536365    84029E  ...    17850.0  United Kingdom
+
+[5 rows x 8 columns]
+[2025-08-28T06:52:28.225+0000] {logging_mixin.py:188} INFO - 
+Data types:
+[2025-08-28T06:52:28.227+0000] {logging_mixin.py:188} INFO - InvoiceNo              object
+StockCode              object
+Description            object
+Quantity                int64
+InvoiceDate    datetime64[ns]
+UnitPrice             float64
+CustomerID            float64
+Country                object
+dtype: object
+[2025-08-28T06:52:28.228+0000] {logging_mixin.py:188} INFO - ==================================================
+[2025-08-28T06:52:33.710+0000] {logging_mixin.py:188} INFO - ✅ Data berhasil disimpan ke: /tmp/orders.csv
+[2025-08-28T06:52:36.110+0000] {logging_mixin.py:188} INFO - [Postgres] Error: column "invoice_no" of relation "orders" does not exist
+LINE 2:                 (invoice_no, stock_code, description, quanti...
+                         ^
+[2025-08-28T06:52:52.084+0000] {logging_mixin.py:188} INFO - [MinIO] File 'orders.csv' berhasil di-upload ✅
+[2025-08-28T06:52:52.091+0000] {logging_mixin.py:188} INFO - ✅ ETL process completed successfully!
+[2025-08-28T06:52:52.170+0000] {python.py:237} INFO - Done. Returned value was: None
+[2025-08-28T06:52:52.171+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-08-28T06:52:52.202+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=load_online_retail, task_id=load_excel_to_postgres, run_id=manual__2025-08-27T18:30:49.369305+00:00, execution_date=20250827T183049, start_date=20250828T065026, end_date=20250828T065252
+[2025-08-28T06:52:52.298+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-08-28T06:52:52.331+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-08-28T06:52:52.336+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

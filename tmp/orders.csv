@@ -1,0 +1,4 @@
+order_id,customer_name,amount,created_at
+ORD001,Ariel,100000,2025-08-01
+ORD002,Budi,250000,2025-08-02
+ORD003,Citra,175000,2025-08-03

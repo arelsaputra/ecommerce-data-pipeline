@@ -1,0 +1,34 @@
+[2025-08-27T18:35:54.595+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-08-27T18:35:54.638+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: ecommerce_pipeline.load_data manual__2025-08-27T18:30:47.560821+00:00 [queued]>
+[2025-08-27T18:35:54.649+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: ecommerce_pipeline.load_data manual__2025-08-27T18:30:47.560821+00:00 [queued]>
+[2025-08-27T18:35:54.650+0000] {taskinstance.py:2306} INFO - Starting attempt 2 of 2
+[2025-08-27T18:35:54.685+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): load_data> on 2025-08-27 18:30:47.560821+00:00
+[2025-08-27T18:35:54.693+0000] {standard_task_runner.py:63} INFO - Started process 590 to run task
+[2025-08-27T18:35:54.697+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'ecommerce_pipeline', 'load_data', 'manual__2025-08-27T18:30:47.560821+00:00', '--job-id', '28', '--raw', '--subdir', 'DAGS_FOLDER/ecommerce_pipeline_dag.py', '--cfg-path', '/tmp/tmpy4g8407h']
+[2025-08-27T18:35:54.700+0000] {standard_task_runner.py:91} INFO - Job 28: Subtask load_data
+[2025-08-27T18:35:54.741+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:195 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-08-27T18:35:54.802+0000] {task_command.py:426} INFO - Running <TaskInstance: ecommerce_pipeline.load_data manual__2025-08-27T18:30:47.560821+00:00 [running]> on host 13527a2f358f
+[2025-08-27T18:35:54.956+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='arel' AIRFLOW_CTX_DAG_ID='ecommerce_pipeline' AIRFLOW_CTX_TASK_ID='load_data' AIRFLOW_CTX_EXECUTION_DATE='2025-08-27T18:30:47.560821+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-08-27T18:30:47.560821+00:00'
+[2025-08-27T18:35:54.959+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-08-27T18:35:55.375+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-08-27T18:35:55.376+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/ecommerce_pipeline_dag.py", line 12, in run_load_data
+    from load_data import main
+  File "/opt/airflow/etl/load_data.py", line 5, in <module>
+    from minio import Minio
+ModuleNotFoundError: No module named 'minio'
+[2025-08-27T18:35:55.395+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=ecommerce_pipeline, task_id=load_data, run_id=manual__2025-08-27T18:30:47.560821+00:00, execution_date=20250827T183047, start_date=20250827T183554, end_date=20250827T183555
+[2025-08-27T18:35:55.464+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 28 for task load_data (No module named 'minio'; 590)
+[2025-08-27T18:35:55.512+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2025-08-27T18:35:55.530+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
