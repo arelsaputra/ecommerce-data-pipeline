@@ -92,8 +92,7 @@ Setup Instructions
 1. Clone repository
 ```
 git clone https://github.com/arelsaputra/ecommerce-data-pipeline.git
-cd eco
-mmerce-data-pipeline
+cd ecommerce-data-pipeline
 ```
 2. Create and activate virtual environment
 ```
